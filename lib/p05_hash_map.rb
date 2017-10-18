@@ -18,7 +18,7 @@ class HashMap
     if include?(key)
       @store[bucket(key)].update(key, val)
     else
-      resize!
+      resize! if @count == num_buckets
       @store[bucket(key)].append(key, val)
       @count += 1
     end
